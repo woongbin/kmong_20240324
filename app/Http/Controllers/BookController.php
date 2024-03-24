@@ -18,12 +18,15 @@ class BookController extends Controller
         $price = $request->input('price');
 
         //1. 빌더
-        Book::create([
-            'name' => $name,
-            'price' => $price
-        ]);
+//        Book::create([
+//            'name' => $name,
+//            'price' => $price
+//        ]);
 
-
-        //2. ORM 객체
+        // ORM instance
+        $book = new Book();
+        $book->name = $name;
+        $book->price = $price;
+        $book->save();
     }
 }
