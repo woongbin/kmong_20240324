@@ -19,6 +19,12 @@ class BookController extends Controller
 
     public function post(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'page' => 'required',
+        ]);
+
         $name = $request->input('name');
         $price = $request->input('price');
 
