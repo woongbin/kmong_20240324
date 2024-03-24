@@ -49,6 +49,13 @@ class BookController extends Controller
             ->orWhere('price', '>=', 30000)
             ->get();
 
+        //이름으로 정렬
+        $result = Book::query()
+            ->where('price', '>=', 1000)
+            ->orWhere('page', '>=', 50)
+            ->orderBy('name')
+            ->get();
+        
         return $result;
     }
 
