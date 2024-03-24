@@ -14,6 +14,8 @@ class BookController extends Controller
 
         //조건에 맞는 모델을 (어떤 기준으로 정렬 된 첫번째) 하나만 조회
         $result = Book::orderBy('id', 'desc')->first();
+        $result = Book::query()->orderBy('id')->first();
+
 
         return $result;
     }
