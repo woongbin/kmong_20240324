@@ -9,7 +9,13 @@ class BookController extends Controller
 {
     public function index()
     {
-        return Book::get();
+        //조건에 맞는 모델 전부 조회
+        $result = Book::get();
+
+        //조건에 맞는 모델을 (어떤 기준으로 정렬 된 첫번째) 하나만 조회
+        $result = Book::orderBy('id', 'desc')->first();
+
+        return $result;
     }
 
     public function show(Request $request, Book $book)
