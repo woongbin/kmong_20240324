@@ -34,4 +34,9 @@ class BookController extends Controller
         $book->price = $price;
         $book->save();
     }
+
+    public function update(Request $request, Book $id)
+    {
+        dd($id);
+    }
 }
