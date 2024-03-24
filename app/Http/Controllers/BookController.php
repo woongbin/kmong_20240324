@@ -47,4 +47,14 @@ class BookController extends Controller
         Book::where('id', '=', $book->id)
             ->update(['name' => $name]);
     }
+
+    public function destroy(Request $request, Book $book)
+    {
+        //ORK
+//        $book->delete();
+
+        //builder
+        Book::where('id', '=', $book->id)
+            ->delete();
+    }
 }
