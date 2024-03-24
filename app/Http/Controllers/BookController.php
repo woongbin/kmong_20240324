@@ -14,8 +14,16 @@ class BookController extends Controller
 
     public function post(Request $request)
     {
-        $name = $request->input('nama');
+        $name = $request->input('name');
+        $price = $request->input('price');
 
-        dd($request->all());
+        //1. 빌더
+        Book::create([
+            'name' => $name,
+            'price' => $price
+        ]);
+
+
+        //2. ORM 객체
     }
 }
