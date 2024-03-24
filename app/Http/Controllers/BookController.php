@@ -16,6 +16,11 @@ class BookController extends Controller
         $result = Book::orderBy('id', 'desc')->first();
         $result = Book::query()->orderBy('id')->first();
 
+        // price 1000인 전체
+        $result = Book::query()->where('price', '=', 1000)->get();
+
+        // price 1000인 하나
+        $result = Book::query()->where('price', '=', 1000)->first();
 
         return $result;
     }
