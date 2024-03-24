@@ -22,6 +22,11 @@ class BookController extends Controller
         // price 1000인 하나
         $result = Book::query()->where('price', '=', 1000)->first();
 
+
+
+        $query = Book::query()->where('price', '=', 6000);
+        dd($query->toSql(), $query->getBindings());
+
         return $result;
     }
 
