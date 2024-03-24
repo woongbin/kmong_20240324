@@ -24,8 +24,30 @@ class BookController extends Controller
 
 
 
-        $query = Book::query()->where('price', '=', 6000);
-        dd($query->toSql(), $query->getBindings());
+//        $query = Book::query()->where('price', '=', 6000);
+//        dd($query->toSql(), $query->getBindings());
+
+        //and where
+        $result = Book::query()
+            ->where('price', '>=', 1000)
+            ->where('page', '>=', 50)
+            ->get();
+
+        //or where
+        $result = Book::query()
+            ->where('price', '>=', 1000)
+            ->orWhere('page', '>=', 50)
+            ->get();
+
+
+        //(이름=책이면서 가격이 1000원이상) 이거나 가격이 30000이상
+        $result = Book::query()
+            ->where(function ($query) {
+                $query->where('name', '=', '책')
+                    ->where('price', '>=', 1000);
+            })
+            ->orWhere('price', '>=', 30000)
+            ->get();
 
         return $result;
     }
