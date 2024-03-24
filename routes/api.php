@@ -22,8 +22,10 @@ Route::get('/', function () {
     return 'test';
 });
 
-Route::get('/books', [\App\Http\Controllers\BookController::class, 'index']);
-Route::get('/books/{book}', [\App\Http\Controllers\BookController::class, 'show']);
-Route::post('/books', [\App\Http\Controllers\BookController::class, 'post']);
-Route::patch('/books/{book}', [\App\Http\Controllers\BookController::class, 'update']);
-Route::delete('/books/{book}', [\App\Http\Controllers\BookController::class, 'destroy']);
+Route::prefix('/books')->group(function () {
+    Route::get('/', [\App\Http\Controllers\BookController::class, 'index']);
+    Route::get('/{book}', [\App\Http\Controllers\BookController::class, 'show']);
+    Route::post('/', [\App\Http\Controllers\BookController::class, 'post']);
+    Route::patch('/{book}', [\App\Http\Controllers\BookController::class, 'update']);
+    Route::delete('/{book}', [\App\Http\Controllers\BookController::class, 'destroy']);
+});
