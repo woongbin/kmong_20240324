@@ -12,6 +12,11 @@ class BookController extends Controller
         return Book::get();
     }
 
+    public function show(Request $request, Book $book)
+    {
+        return $book;
+    }
+
     public function post(Request $request)
     {
         $name = $request->input('name');
