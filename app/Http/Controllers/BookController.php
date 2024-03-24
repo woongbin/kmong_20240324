@@ -35,8 +35,16 @@ class BookController extends Controller
         $book->save();
     }
 
-    public function update(Request $request, Book $id)
+    public function update(Request $request, Book $book)
     {
-        dd($id);
+        $name = $request->input('name');
+
+        //ORM Instance
+//        $book->name = $name;
+//        $book->save();
+
+        //builder
+        Book::where('id', '=', $book->id)
+            ->update(['name' => $name]);
     }
 }

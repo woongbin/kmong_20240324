@@ -25,4 +25,4 @@ Route::get('/', function () {
 Route::get('/books', [\App\Http\Controllers\BookController::class, 'index']);
 Route::get('/books/{book}', [\App\Http\Controllers\BookController::class, 'show']);
 Route::post('/books', [\App\Http\Controllers\BookController::class, 'post']);
-Route::patch('/books/{id}', [\App\Http\Controllers\BookController::class, 'update']);
+Route::patch('/books/{book}', [\App\Http\Controllers\BookController::class, 'update']);

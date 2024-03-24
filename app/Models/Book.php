@@ -14,9 +14,4 @@ class Book extends Model
     protected $fillable = [
         'name', 'price'
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'name';
-    }
 }
